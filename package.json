@@ -1,0 +1,32 @@
+{
+  "name": "mern-social-network-for-devs",
+  "version": "1.0.0",
+  "description": "full stack mern app for devs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AGrush/MERN-Dev-social-network.git"
+  },
+  "author": "Andrey Grushevskiy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AGrush/MERN-Dev-social-network/issues"
+  },
+  "homepage": "https://github.com/AGrush/MERN-Dev-social-network#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.4.20",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
