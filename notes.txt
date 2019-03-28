@@ -57,7 +57,7 @@ npm i -D nodemon
 #MODELS/User.js
   - Create: check file for notes on code.
 
-10 User registration & postman
+10 User registration, bcrypt & postman
 ======================================================================================
                     200: successful response
                     400: validation error (invalid email)
@@ -75,4 +75,5 @@ npm i gravatar
   - run bcrypt generate salt, hash the password with the salt and save() the new user with - - mongoose and respond as json with the new user
   - We can now register a user.
 
-
+11 Login User & Return token.
+======================================================================================

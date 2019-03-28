@@ -6,14 +6,14 @@ const bcrypt = require("bcryptjs");
 // Import User model
 const User = require("../../models/User");
 
-//whe we create a route that will expect a GET request and return a json object
+//we create a route that will expect a GET request and return a json object
 // @route   GET api/profile/test
 // @desc    Tests users route
 // @access  Public
 router.get("/test", (req, res) => res.json({ msg: "Users Works" }));
 
-//whe we create a route that will expect a POSE request and return a json object
-// @route   POST api/users/register
+//we create a REGISTRATION route that will expect a POST request and return a json object
+// @route   GET api/users/register
 // @desc    Register user
 // @access  Public
 router.post("/register", (req, res) => {
@@ -51,6 +51,35 @@ router.post("/register", (req, res) => {
         });
       });
     }
+  });
+});
+
+// we create a LOGIN route that will expect a GET request and return a TOKEN
+// @route   GET api/users/login
+// @desc    Login User/ Return JWT Token
+// @access  Public
+router.post("/login", (req, res) => {
+  //put the form variables into variables
+  const email = req.body.email;
+  const pass = req.body.password;
+
+  //Find user by email
+  User.findOne({ email }).then(user => {
+    if (!user) {
+      return res.status(404).json({ email: "User not found" });
+    }
+
+    // Check login password (pass) with registered hash password using bcrypt.compare
+    bcrypt
+      .compare(pass, user.password)
+      //return true/false boolean promise
+      .then(isMatch => {
+        if (isMatch) {
+          res.json({ msg: "Success" });
+        } else {
+          return res.status(400).json({ password: "Password incorrect" });
+        }
+      });
   });
 });
 
