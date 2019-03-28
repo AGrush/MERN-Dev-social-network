@@ -77,3 +77,8 @@ npm i gravatar
 
 11 Login User & Return token.
 ======================================================================================
+users.js 
+  - create route for Login
+  - find user by email
+  - if email doesnt exist respond with error
+  - else compare the password with bcrypt.compare and print 'success' if true.
