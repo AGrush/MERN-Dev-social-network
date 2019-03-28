@@ -1,5 +1,14 @@
+npm init
+//server.js entry for fullstack apps
+
 npm i express mongoose passport passport-jwt jsonwebtoken bod
 y-parser bcryptjs validator
-//dev dependancies
-// nodemon constantly watches the application and updates
+
+// dev dependancies, nodemon constantly watches the application and updates
 npm i -D nodemon
+
+//update package.json to enable nodemon with 'npm run server'
+    "start": "node server.js",
+    "server": "nodemon server.js"
+
+//
