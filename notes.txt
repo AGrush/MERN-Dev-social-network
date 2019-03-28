@@ -57,3 +57,22 @@ npm i -D nodemon
 #MODELS/User.js
   - Create: check file for notes on code.
 
+10 User registration & postman
+======================================================================================
+                    200: successful response
+                    400: validation error (invalid email)
+                    404: not found
+                    500: server errors
+users.js
+  - create router enndpoint for registration
+  - import User model at the top
+  - build logic for '/register' endpoint/route: using the User model findOne user with email of req.body.email, .then if user exists, respond with status 400 & error message, else create a new user const with the parameters from the requests body, name, email, password  (including gravatar).
+  - when we send data to a route with a form.. we access it with req.body
+  - install gravatar & import it at the top
+npm i gravatar
+  -  create a new const for avatar with takes in email & options (as per node gravatar github docs)
+  - import bcrypt. 
+  - run bcrypt generate salt, hash the password with the salt and save() the new user with - - mongoose and respond as json with the new user
+  - We can now register a user.
+
+
