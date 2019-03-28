@@ -49,3 +49,11 @@ npm i -D nodemon
   - copy Users.js n fill in different message
 #Posts.js 
   - copy Users.js n fill in different message
+
+9 Create the mongoose User Model & schema
+======================================================================================
+  - The convention for models is to start with a capital and to be singular
+
+#MODELS/User.js
+  - Create: check file for notes on code.
+
