@@ -82,3 +82,7 @@ users.js
   - find user by email
   - if email doesnt exist respond with error
   - else compare the password with bcrypt.compare and print 'success' if true.
+  - test with postman
+
+  - import in json webtokens
+  - change 'success' response to token response
