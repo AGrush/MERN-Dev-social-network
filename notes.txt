@@ -20,8 +20,10 @@ CONFIG/KEYS.JS
   - Create key file for database
 Server.js 
   - Create DB URI const
-  - Mongoose.connect(db)
-  
+  - Call Mongoose.connect(db) and receiver promise
+
+
+
 
 
 
