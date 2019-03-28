@@ -1,6 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
+const users = require("./routes/api/users");
+const profile = require("./routes/api/profile");
+const posts = require("./routes/api/posts");
+
 const app = express();
 
 // DB Config
@@ -14,6 +18,11 @@ mongoose
 
 //basic route
 app.get("/", (req, res) => res.send("Hello world"));
+
+// Use Routes (what url we want, where the file is for it)
+app.use("/api/users", users);
+app.use("/api/profile", profile);
+app.use("/api/posts", posts);
 
 //the port on heroku OR local
 const port = process.env.PORT || 5000;

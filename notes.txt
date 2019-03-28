@@ -1,31 +1,51 @@
 6 Create basic setup & server
 ======================================================================================
 npm init
-//server.js entry for fullstack apps
+  - server.js entry for fullstack apps
 
 npm i express mongoose passport passport-jwt jsonwebtoken body-parser bcryptjs validator
 
-// dev dependancies, nodemon constantly watches the application and updates
+  - dev dependancies, nodemon constantly watches the application and updates
 npm i -D nodemon
 
-//update package.json to enable nodemon with 'npm run server'
+  - update package.json to enable nodemon with 'npm run server'
     "start": "node server.js",
     "server": "nodemon server.js"
 
-SERVER.JS: Create basic one file Express routee.
+#Server.JS: 
+  - Create basic one file Express route.
 
 7 Connect Mongoose & MongoDB.
 ====================================================================================
-CONFIG/KEYS.JS 
+#CONFIG/keys.JS 
   - Create key file for database
-Server.js 
+#Server.js 
   - Create DB URI const
   - Call Mongoose.connect(db) and receiver promise
 
+8 Create Route Files for Express Router and test routes that the api will respond to.
+===================================================================================
+  - Use express router to separate routes into separate files for each of our resources: 
+  - Users, Profiles, Posts.
 
+#ROUTES/API/Users.js
+  - This is just going to deal with authentication ( username/email/password )
+#ROUTES/API/Profile.js
+  - This is going to deal with profile (location/bio/experiences/links)
+#ROUTES/API/Posts.js
+  - This is going to deal with posts and comments
 
+#Server.js 
+  - Import those files into server.js | const users = require('/routes/api/users')
+  - Express().use those routes | app.use("./api/posts", posts);
 
-
-
-
-Separate routes into separate folders
+#Users.js 
+  - create route on top of the server.js routes we just made for the extra '/test' url | router.get('/test', (req, res) = res.json())
+  - this is added on to previous route so the endpoint will be api/posts/test. 
+  - res.json is like res.send but with json.
+  - export the route so that server.js can use it.
+  - add comments of with Route, Description & Access.
+#Profile.js 
+  - copy Users.js n fill in different message
+#Posts.js 
+  - copy Users.js n fill in different message
