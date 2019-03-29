@@ -96,3 +96,21 @@ CONFIG/passport.js
   - create our JWT passport strategy
 ROUTES/users.js
   - create a protected route for users/current
+
+  14 Server side validation
+======================================================================================
+  - Validator module
+VALIDATION/register.js
+  - create global function for validating input
+  - create all the logic for the validateRegisterInput function here that we'll push the the request body through every time the registration endpoint is hit.
+VALIDATION/is-empty.js
+  - create cusom empty field validation function and export it
+ROUTES/users.js
+  - import /register endpoint validation function validateRegisterInput(data)
+  - can add this chunk of code to any other routes that takes in data (req.body)
+
+VALIDATION/login.js
+  - paste in all the register.js validation file in and remove everything apart from email and password stuff, change name of function to validateLoginInput
+ROUTES/users.js
+  - import /login endpoint validation function validateRegisterInput(data)
+  - add new validation code to top of login route

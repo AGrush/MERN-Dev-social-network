@@ -6,6 +6,10 @@ const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const passport = require("passport");
 
+//Import Input Validation
+const validateRegisterInput = require("../../validation/register");
+const validateLoginInput = require("../../validation/login");
+
 // Import User model
 const User = require("../../models/User");
 
@@ -20,12 +24,21 @@ router.get("/test", (req, res) => res.json({ msg: "Users Works" }));
 // @desc    Register user
 // @access  Public
 router.post("/register", (req, res) => {
+  //VALIDATION TO BE USED ON ANY ROUTE
+  //put the request through our register.js validation function and pull out the returned errors and isValid from the response body using destructuring
+  const { errors, isValid } = validateRegisterInput(req.body);
+  //Check Validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
   //we're going to use mongoose to first find if the email exists
   //when we send data to a route with a form.. we access it with req.body
   //findOne is a mongoose method (uses promises/callbacks)
   User.findOne({ email: req.body.email }).then(user => {
     if (user) {
-      return res.status(400).json({ email: "Email already exists" });
+      errors.email = "Email already exists";
+      return res.status(400).json({ errors });
     } else {
       const avatar = gravatar.url(req.body.email, {
         s: "200", //size
@@ -62,6 +75,14 @@ router.post("/register", (req, res) => {
 // @desc    Login User/ Return JWT Token
 // @access  Public
 router.post("/login", (req, res) => {
+  //VALIDATION TO BE USED ON ANY ROUTE
+  //put the request through our register.js validation function and pull out the returned errors and isValid from the response body using destructuring
+  const { errors, isValid } = validateLoginInput(req.body);
+  //Check Validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
   //put the form variables into variables
   const email = req.body.email;
   const pass = req.body.password;
@@ -69,7 +90,8 @@ router.post("/login", (req, res) => {
   //Find user by email
   User.findOne({ email }).then(user => {
     if (!user) {
-      return res.status(404).json({ email: "User not found" });
+      errors.email = "User not found";
+      return res.status(404).json({ errors });
     }
 
     // Check login password (pass) with registered hash password using bcrypt.compare
@@ -95,7 +117,8 @@ router.post("/login", (req, res) => {
             }
           );
         } else {
-          return res.status(400).json({ password: "Password incorrect" });
+          errors.password = "Password incorrect";
+          return res.status(400).json({ errors });
         }
       });
   });
@@ -113,7 +136,7 @@ router.get(
     //res.json(req.user); would be the full response of all user details (inc password)
     res.json({
       id: req.user.id,
-      name: req.user.email,
+      name: req.user.name,
       email: req.user.email
     });
   }
