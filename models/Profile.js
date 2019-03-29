@@ -61,15 +61,13 @@ const ProfileSchema = new Schema({
       description: { type: String }
     }
   ],
-  social: [
-    {
-      youtube: { type: String },
-      twitter: { type: String },
-      facebook: { type: String },
-      linkedin: { type: Date },
-      instagram: { type: Date }
-    }
-  ],
+  social: {
+    youtube: { type: String },
+    twitter: { type: String },
+    facebook: { type: String },
+    linkedin: { type: Date },
+    instagram: { type: Date }
+  },
   date: {
     type: Date,
     default: Date.now

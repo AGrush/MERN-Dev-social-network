@@ -3,6 +3,9 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require("passport");
 
+// Load Validation
+const validateProfileInput = require("../../validation/profile");
+
 //Load profile model
 const Profile = require("../../models/Profile");
 //Load user profile
@@ -22,6 +25,9 @@ router.get("/", passport.authenticate("jwt", { session: false }), (req, res) => 
   const errors = {};
 
   Profile.findOne({ user: req.user.id })
+  //since our Profile Schema has ref:'users'
+  //populate from user
+  .populate('user', ['name', 'avatar'])
   .then(profile => {
     if (!profile) {
       errors.noprofile = 'There is no profile for this user'
@@ -35,10 +41,19 @@ router.get("/", passport.authenticate("jwt", { session: false }), (req, res) => 
 // @route   POST api/profile
 // @desc    Create or edit user profile
 // @access  Private
-router.get(
+router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    //put the request through our profile.js validation function and pull out the returned errors and isValid from the response body using destructuring,
+    const { errors, isValid } = validateProfileInput(req.body);
+
+    // isValid should return true if there were no errors in the validation function.
+    if (!isValid) {
+      // Return any errors with 400 status
+      return res.status(400).json(errors);
+    }
+
     //Get fields from req.body and fill this object with them
     const profileFields = {};
     //get the user from the logged in user id
