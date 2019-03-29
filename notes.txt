@@ -138,3 +138,8 @@ VALILDATION/Profile.js
   - Create the api/profile vallidation file for the POST&UPDATE route
   - Update Private Api/Profile route to check the validation of request before responding with anything
   - Add .populate('user', ['name', 'avatar']) code to populate from 'users' into the GET response. This is because we connected our user collection to the profile inside the model.
+
+21 Create routes to get the profile by the handle, by the ID and one to fetch all the profiles and serve as an array.
+======================================================================================
+ROUTES/Profile.js
+  - Do those 3 routes
