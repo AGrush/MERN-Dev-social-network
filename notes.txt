@@ -50,7 +50,7 @@ npm i -D nodemon
 #Posts.js 
   - copy Users.js n fill in different message
 
-9 Create the mongoose User Model & schema
+9 Create User Model & schema
 ======================================================================================
   - The convention for models is to start with a capital and to be singular
 
@@ -119,3 +119,15 @@ ROUTES/users.js
 ======================================================================================
 MODELS/Profile.js
   - Create the profile mongoose model & schema
+
+  18 Create USER GET Api/Profile Private Route
+======================================================================================
+ROUTES/Profile.js
+  - Import mongoose User & Profile model
+  - Create the api/profile GET route
+  - Test on postman
+
+  19 Create USER POST Api/Profile Private Route
+======================================================================================
+ROUTES/Profile.js
+  - Create the api/profile POST route
