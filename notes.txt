@@ -114,3 +114,8 @@ VALIDATION/login.js
 ROUTES/users.js
   - import /login endpoint validation function validateRegisterInput(data)
   - add new validation code to top of login route
+
+  17 Create Profile Model
+======================================================================================
+MODELS/Profile.js
+  - Create the profile mongoose model & schema
