@@ -86,3 +86,13 @@ users.js
 
   - import in json webtokens
   - change 'success' response to token response
+
+13 Passport JWT Authentication Strategy
+======================================================================================
+Server.js
+  - import passport
+  - add passport middleware & config lines
+CONFIG/passport.js
+  - create our JWT passport strategy
+ROUTES/users.js
+  - create a protected route for users/current

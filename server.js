@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
 const posts = require("./routes/api/posts");
+const passport = require("passport");
 const app = express();
 
 // DB Config
@@ -19,8 +20,10 @@ mongoose
   .then(() => console.log("Mongo DB Connected"))
   .catch(err => console.log(err));
 
-//basic route
-app.get("/", (req, res) => res.send("Hello world"));
+//Passport middleware
+app.use(passport.initialize());
+// Passport Config
+require("./config/passport")(passport);
 
 // Use Routes (what url we want, where the file is for it)
 app.use("/api/users", users);

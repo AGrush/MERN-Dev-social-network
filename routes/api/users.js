@@ -4,6 +4,8 @@ const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
+const passport = require("passport");
+
 // Import User model
 const User = require("../../models/User");
 
@@ -98,6 +100,24 @@ router.post("/login", (req, res) => {
       });
   });
 });
+
+// @route   GET api/users/current
+// @desc    Return current user
+// @access  Private
+router.get(
+  "/current",
+  //passport.authenticate as second param, 'jwt' strategy, not using session, callback request response
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    //res.json({ msg: "success" });
+    //res.json(req.user); would be the full response of all user details (inc password)
+    res.json({
+      id: req.user.id,
+      name: req.user.email,
+      email: req.user.email
+    });
+  }
+);
 
 //we have to export the router for server.js to pick it up
 module.exports = router;
