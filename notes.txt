@@ -143,3 +143,21 @@ VALILDATION/Profile.js
 ======================================================================================
 ROUTES/Profile.js
   - Do those 3 routes
+
+22 Create routes & validation files for posting new experience, posting new education.
+======================================================================================
+ROUTES/profile.js
+  - Add POST api/profile/experience route
+VLLIDATION/experience.js
+  - Add eperience validation
+
+ROUTES/profile.js
+  - Add POST api/profile/education route
+VLLIDATION/education.js
+  - Add education validation
+
+23 Create routes to delete education/experience and the whole profile
+======================================================================================
+ROUTES/profile.js
+  - Add DELEte routes for experience & education routes and for the profile
+  TEST ON POSTMAN
