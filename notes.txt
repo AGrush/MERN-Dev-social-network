@@ -199,3 +199,10 @@ ROUTES/posts.js
   - create get route for all posts: GET api/posts
   - create get route for all posts by ID: GET api/posts/:id
   - create delete route for post by ID: DELETE api/posts/:id
+
+
+27. Post Like & Unlike Routes
+========================================================================================
+ROUTES/posts.js
+  - create the like post by id route: POST api/posts/like/:id
+  - create the v similar unlike by id route: POST api/posts/unlike/:id
