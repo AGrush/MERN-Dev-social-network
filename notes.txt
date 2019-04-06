@@ -193,3 +193,9 @@ VALIDATION/post.js
 ROUTES/posts.js
   - so far only a test route in here, add the real route for posts with the requests post parameters and save them to the model we made. Import the validation function and add the validation block before the block for submitting the new post.
 
+26 Get & Delete Post Routes
+======================================================================================
+ROUTES/posts.js
+  - create get route for all posts: GET api/posts
+  - create get route for all posts by ID: GET api/posts/:id
+  - create delete route for post by ID: DELETE api/posts/:id
