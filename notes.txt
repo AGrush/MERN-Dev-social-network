@@ -184,6 +184,8 @@ ROUTES/profile.js
 POSTS MODEL & API ROUTES 
 ++++++++++++++++++++++++
 
+
+
 24 Create Posts Model
 ======================================================================================
 MODELS/Post.js
@@ -206,3 +208,9 @@ ROUTES/posts.js
 ROUTES/posts.js
   - create the like post by id route: POST api/posts/like/:id
   - create the v similar unlike by id route: POST api/posts/unlike/:id
+
+28. Add & Remove Comment Routes
+========================================================================================
+ROUTES/posts.js
+  - create the ADD comment by id route: POST api/posts/comment/:id
+  - create the DELET comment by id route: DELETE api/posts/comment/:id/:comment_id
