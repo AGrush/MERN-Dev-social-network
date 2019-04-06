@@ -210,7 +210,7 @@ ROUTES/posts.js
   - create the v similar unlike by id route: POST api/posts/unlike/:id
 
 28. Add & Remove Comment Routes
-========================================================================================
+=========================================================================================
 ROUTES/posts.js
   - create the ADD comment by id route: POST api/posts/comment/:id
-  - create the DELET comment by id route: DELETE api/posts/comment/:id/:comment_id
+  - create the DELET comment by id route: DELETE api/posts/comment/:id/:comment_id 
