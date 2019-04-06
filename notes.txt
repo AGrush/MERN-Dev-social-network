@@ -12,14 +12,14 @@ npm i -D nodemon
     "start": "node server.js",
     "server": "nodemon server.js"
 
-#Server.JS: 
+#server.js: 
   - Create basic one file Express route.
 
 7 Connect Mongoose & MongoDB.
 ====================================================================================
-#CONFIG/keys.JS 
+#CONFIG/keys.js 
   - Create key file for database
-#Server.js 
+#server.js 
   - Create DB URI const
   - Call Mongoose.connect(db) and receiver promise
 
@@ -28,26 +28,26 @@ npm i -D nodemon
   - Use express router to separate routes into separate files for each of our resources: 
   - Users, Profiles, Posts.
 
-#ROUTES/API/Users.js
+#ROUTES/API/users.js
   - This is just going to deal with authentication ( username/email/password )
-#ROUTES/API/Profile.js
+#ROUTES/API/profile.js
   - This is going to deal with profile (location/bio/experiences/links)
-#ROUTES/API/Posts.js
+#ROUTES/API/posts.js
   - This is going to deal with posts and comments
 
-#Server.js 
+#server.js 
   - Import those files into server.js | const users = require('/routes/api/users')
   - Express().use those routes | app.use("./api/posts", posts);
 
-#Users.js 
+#users.js 
   - create route on top of the server.js routes we just made for the extra '/test' url | router.get('/test', (req, res) = res.json())
   - this is added on to previous route so the endpoint will be api/posts/test. 
   - res.json is like res.send but with json.
   - export the route so that server.js can use it.
   - add comments of with Route, Description & Access.
-#Profile.js 
+#profile.js 
   - copy Users.js n fill in different message
-#Posts.js 
+#posts.js 
   - copy Users.js n fill in different message
 
 
@@ -187,6 +187,9 @@ POSTS MODEL & API ROUTES
 24 Create Posts Model
 ======================================================================================
 MODELS/Post.js
-  - create file with api/posts route
+  - create file with api/posts model
 VALIDATION/post.js
   - create file with the function to validate posts
+ROUTES/posts.js
+  - so far only a test route in here, add the real route for posts with the requests post parameters and save them to the model we made. Import the validation function and add the validation block before the block for submitting the new post.
+
