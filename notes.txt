@@ -291,7 +291,7 @@ COMPONENTS/LAYOUT/Navbar.js
   - import Link from react router
   - add Links instead of a tags and to="/" instead of href="/.html"
 
-  34. Create Basic Form & Login Form
+  34. Create Basic Register Form & Login Form
 ==========================================================================
 COMPONENTS/AUTH/Register.js
   - copy base from theme & change class to className
