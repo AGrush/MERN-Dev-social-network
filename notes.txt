@@ -259,9 +259,34 @@ ADD:
   32. Basic Layout
 ===================================================================================
   - create in the src folder:
-    COMPONENTS/LAYOUT/Navbar.js
-      - copy accross the navbar from theme landing.html file, change 'class' to 'className' & import into App.js
-    COMPONENTS/LAYOUT/Footer.js
-      - add basic funcitonal component with date object & import file into App.js
-    COMPONENTS/LAYOUT/Landing.js
-      - copy accross the landing section from theme landing.html file, change 'class' to 'className' & import into App.js
+COMPONENTS/LAYOUT/Navbar.js
+  - copy accross the navbar from theme landing.html file, change 'class' to 'className' & import into App.js
+COMPONENTS/LAYOUT/Footer.js
+  - add basic funcitonal component with date object & import file into App.js
+COMPONENTS/LAYOUT/Landing.js
+  - copy accross the landing section from theme landing.html file, change 'class' to 'className' & import into App.js
+
+  33. React Router Setup. All Routes in App.js & Navbar Links
+===================================================================================
+  - install react router on the client side
+#cd client
+#npm i react-router-dom
+
+MAIN/App.js:
+  import { BrowserRouter as Router, Route } from 'react-router-dom'
+  add & change:
+   *<Router>
+      <div className="App">
+        <Navbar />
+        *<Route exact path="/" component={Landing} />
+        <Footer />
+      </div>
+    </Router>
+COMPONENTS/AUTH/Login.js
+COMPONENTS/AUTH/Register.js
+  - basic class based components with text to test routes
+MAIN/App.js:
+  - add react-routes for /register and /login
+COMPONENTS/LAYOUT/Navbar.js
+  - import Link from react router
+  - add Links instead of a tags and to="/" instead of href="/.html"
