@@ -249,3 +249,19 @@ ADD:
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
+
+  31. Clean create-react-app out and setup bootstrap & assets & chrome extensions
+===================================================================================
+  - clear the code in App.css & replace with the theme css prepared earlier
+  - add bootstrap/fontawesome/jquery and any other CDN to index.html
+  - install chrome extensions
+
+  32. Basic Layout
+===================================================================================
+  - create in the src folder:
+    COMPONENTS/LAYOUT/Navbar.js
+      - copy accross the navbar from theme landing.html file, change 'class' to 'className' & import into App.js
+    COMPONENTS/LAYOUT/Footer.js
+      - add basic funcitonal component with date object & import file into App.js
+    COMPONENTS/LAYOUT/Landing.js
+      - copy accross the landing section from theme landing.html file, change 'class' to 'className' & import into App.js
