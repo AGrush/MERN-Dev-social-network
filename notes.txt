@@ -303,3 +303,34 @@ COMPONENTS/AUTH/Register.js
   - remove form html submit action and replace with an onSubmit={onSubmit} funciton, create that function and initially just console log the form inputs as an object.
 COMPONENTS/AUTH/Login.js
   - same as for register
+
+  37. Testing registration with axios
+==========================================================================
+  - install axios
+#cd client
+#npm i axios
+
+COMPONENTS/AUTH/Register.js
+  - import axios
+  - instead of console logging the user now attempt to register a user with axios:
+  axios
+      .post("api/users/register", newUser)
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err.response.data);
+      });
+
+  38. Display errors with classnames & state & bootstrtap
+==========================================================================
+A Bootstrap div with isInvalid as a class will show when an inoputis invalid with error text inside.
+
+  - If something is true, add a class to it:
+#npm install classnames
+
+COMPONENTS/AUTH/Register.js
+  - import classnames from 'classnames'
+  - edit the validation in Register.js file to output validation with bootstrap & js
+  - add noValidate to the form to prevent html5 validation
+
