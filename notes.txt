@@ -290,3 +290,16 @@ MAIN/App.js:
 COMPONENTS/LAYOUT/Navbar.js
   - import Link from react router
   - add Links instead of a tags and to="/" instead of href="/.html"
+
+  34. Create Basic Form & Login Form
+==========================================================================
+COMPONENTS/AUTH/Register.js
+  - copy base from theme & change class to className
+  - initialise the state
+  - for each input make the value 'this.state.xxx' and the name 'xxx' with an onChange={onChange}. Create the onChange function:
+    onChange = e => {
+      this.setState({ [e.target.name]: e.target.value });
+    };
+  - remove form html submit action and replace with an onSubmit={onSubmit} funciton, create that function and initially just console log the form inputs as an object.
+COMPONENTS/AUTH/Login.js
+  - same as for register
