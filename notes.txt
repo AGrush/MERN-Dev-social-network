@@ -334,3 +334,64 @@ COMPONENTS/AUTH/Register.js
   - edit the validation in Register.js file to output validation with bootstrap & js
   - add noValidate to the form to prevent html5 validation
 
+  39. REDUX Store & Chrome Extension setup
+==========================================================================
+
+#npm i redux react-redux redux-thunk
+
+  - redux thunk is middleware allows us to wait for the response from an ajax request before dispatching to our reducer.
+
+MAIN/App.js:
+  - import provider from react-redux
+#import { Provider } from "react-redux";
+  - it provides our application with the store which holds the state
+  - wrap the return in a Provider which takes in a store prop.
+
+MAIN/store.js:
+  - make new file.
+  - createStore & import the relevant functions
+#import { createStore, applyMiddleware } from 'redux'
+#const store = createStore(() => [], {}, applyMiddleware())
+
+MAIN/App.js:
+  - import the store
+#import store from "./store";
+
+MAIN/store.js:
+  - Bring in thunk middleware
+#import thunk from 'redux-thunk'
+  - Set it as a middleware variable & bring into the store
+#const middleware = { thunk };
+#const store = createStore(() => [], {}, applyMiddleware(...middleware))
+
+MAIN/REDUCERS/index.js
+  - create base reducer
+
+MAIN/REDUCERS/authReducer.js
+  - create authentication reducer
+
+MAIN/store.js:
+  - setup the Redux extension here
+
+41 Redux Action & Reducer EXAMPLE
+==========================================================================
+COMPONENTS/Register.js
+  - create the function inside onSubmit that calls the necessary Action and passes the registering 'user' object to it.
+#this.props.registerUser(newUser);
+
+ACTIONS/authActions.js
+ACTIONS/types.js
+  - create an action Type TEST_DISPATCH
+  - create an action AuthActions.js which essentially is an Action (function) of type TEST_DISPATCH that takes the form input (in theory doing extra stuff to it) and dispatches it to the Reducer via a payload.
+
+REDUCERS/authReducer.js
+  - The switch with the correct action.type takes the payload from said action and attaches it to the current (spread operator) state.
+
+COMPONENTS/Register.js
+  - connect the component to the redux store
+  //function connect(mapStateToProps?, mapDispatchToProps?, mergeProps?, options?)
+  - dont forget to register the prop type
+  - mapStateToProps so that we can output the new state into the render method
+  - in the render method, grab/destructure the user object from the auth prop and get the 'user'.
+
+  

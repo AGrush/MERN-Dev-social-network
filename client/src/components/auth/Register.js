@@ -1,6 +1,10 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 import classnames from "classnames";
+import { connect } from "react-redux";
+import { registerUser } from "../../actions/authActions";
+import { isError } from "util";
 
 class Register extends Component {
   constructor() {
@@ -29,29 +33,33 @@ class Register extends Component {
       password2: this.state.password2
     };
 
-    axios
-      .post("api/users/register", newUser)
-      .then(res => {
-        console.log(res.data);
-      })
-      .catch(err => {
-        //instead of console logging the error we set it to the state
-        this.setState({ errors: err.response.data });
-      });
+    this.props.registerUser(newUser);
+
+    // axios
+    //   .post("api/users/register", newUser)
+    //   .then(res => {
+    //     console.log(res.data);
+    //   })
+    //   .catch(err => {
+    //     //instead of console logging the error we set it to the state
+    //     this.setState({ errors: err.response.data });
+    //   });
   };
 
   render() {
     //destructuring, pull errors out
     const { errors } = this.state;
+
+    const { user } = this.props.auth;
+
     return (
       <div className="register">
+        {user ? user.name : null}
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Sign Up</h1>
-              <p className="lead text-center">
-                Create your DevConnector account
-              </p>
+              <p className="lead text-center">Create your DevNetwork account</p>
               <form noValidate onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input
@@ -132,4 +140,19 @@ class Register extends Component {
   }
 }
 
-export default Register;
+//map all of our prop types
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  //this comes from the root reducer
+  auth: state.auth
+});
+
+//prettier-ignore
+//The connect() function connects a React component to a Redux store.
+//function connect(mapStateToProps?, mapDispatchToProps?, mergeProps?, options?)
+
+export default connect(mapStateToProps,{ registerUser })(Register);
