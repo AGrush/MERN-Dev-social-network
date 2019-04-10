@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
+import { withRouter } from "react-router-dom";
 import classnames from "classnames";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
@@ -23,6 +23,13 @@ class Register extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  //This takes the errors state that gets passed from reducer to the mapStateToProps funciton below, and sets it to the Component state,
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onSubmit = e => {
     e.preventDefault();
 
@@ -33,28 +40,16 @@ class Register extends Component {
       password2: this.state.password2
     };
 
-    this.props.registerUser(newUser);
-
-    // axios
-    //   .post("api/users/register", newUser)
-    //   .then(res => {
-    //     console.log(res.data);
-    //   })
-    //   .catch(err => {
-    //     //instead of console logging the error we set it to the state
-    //     this.setState({ errors: err.response.data });
-    //   });
+    //to be able to redirect to login if this registration function is successful, we pass this.props.history along to the action where it will fire last thing.
+    this.props.registerUser(newUser, this.props.history);
   };
 
   render() {
     //destructuring, pull errors out
     const { errors } = this.state;
 
-    const { user } = this.props.auth;
-
     return (
       <div className="register">
-        {user ? user.name : null}
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
@@ -143,16 +138,18 @@ class Register extends Component {
 //map all of our prop types
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   //this comes from the root reducer
-  auth: state.auth
+  auth: state.auth,
+  errors: state.errors
 });
 
 //prettier-ignore
 //The connect() function connects a React component to a Redux store.
 //function connect(mapStateToProps?, mapDispatchToProps?, mergeProps?, options?)
-
-export default connect(mapStateToProps,{ registerUser })(Register);
+//withRouter here is so that we are able to redirect from an Action.
+export default connect(mapStateToProps,{ registerUser })(withRouter(Register));

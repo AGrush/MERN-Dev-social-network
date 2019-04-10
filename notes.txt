@@ -358,7 +358,7 @@ MAIN/App.js:
 #import store from "./store";
 
 MAIN/store.js:
-  - Bring in thunk middleware
+  - Bring in thunk middleware. In order to deal with asynchronous requests and wait fo response
 #import thunk from 'redux-thunk'
   - Set it as a middleware variable & bring into the store
 #const middleware = { thunk };
@@ -394,4 +394,43 @@ COMPONENTS/Register.js
   - mapStateToProps so that we can output the new state into the render method
   - in the render method, grab/destructure the user object from the auth prop and get the 'user'.
 
-  
+
+42 Registration and the errors reducer
+========================================
+COMPONENTS/Register.js
+  - create the function inside onSubmit that calls the necessary Action and passes the registering 'user' object to it.
+#this.props.registerUser(newUser);
+
+ACTIONS/authActions.js
+  - import in the GET_ERRORS Action type & create it in Types.js
+  - create logic for the axios call which hits the server endpoints and if successful redirects to login page,
+  if not it dispathes the errors to the state. We use dispatch middleware because we can not simply return the error state, we need to wait for it to respond first (async).
+
+REDUCERS/errorReducer.js
+  - import the GET_ERRORS Action type
+  - add it as a case and return the action.payload, which will include the errors object which comes from our server endpoint.
+
+REDUCERS/index.js
+  - add the errorReducer to the root reducer.
+
+COMPONENTS/Register.js
+ - connect the component to the redux store with mapStateToProps
+ - register the prop type
+ - set the redux state to the component state if the getPropsFromState has an errors object:
+    #componentWillReceiveProps(nextProps) {
+        if (nextProps.errors) {
+          this.setState({ errors: nextProps.errors });
+        }
+      }
+
+
+--------------------------------------------
+TO REDIRECT THE PAGE FROM WITHIN ACTION
+  - import { withRouter } from "react-router-dom";
+  - add it to the component export at the bottom.. withRouter(component)
+  - pass 'this.props.history' as a second variable in the action invoking function
+  - use in it the action #.then(res => {history.push("login");})
+
+REDIRECT TO A PAGE FROM INSIDE A COMPONENT
+  #this.props.history.push('/dashboard')
+  --------------------------------------------
