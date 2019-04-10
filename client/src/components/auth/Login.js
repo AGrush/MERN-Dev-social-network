@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { loginUser } from "../../actoins/authActions";
 
 class Login extends Component {
   constructor() {
@@ -67,4 +70,5 @@ class Login extends Component {
   }
 }
 
-export default Login;
+// prettier-ignore
+export default connect(null, { loginUser })(Login);

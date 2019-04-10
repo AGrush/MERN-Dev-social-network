@@ -374,7 +374,7 @@ MAIN/store.js:
   - setup the Redux extension here
 
 41 Redux Action & Reducer EXAMPLE
-==========================================================================
+==============================================================================================
 COMPONENTS/Register.js
   - create the function inside onSubmit that calls the necessary Action and passes the registering 'user' object to it.
 #this.props.registerUser(newUser);
@@ -396,7 +396,7 @@ COMPONENTS/Register.js
 
 
 42 Registration and the errors reducer
-========================================
+========================================================================================================
 COMPONENTS/Register.js
   - create the function inside onSubmit that calls the necessary Action and passes the registering 'user' object to it.
 #this.props.registerUser(newUser);
@@ -434,3 +434,37 @@ TO REDIRECT THE PAGE FROM WITHIN ACTION
 REDIRECT TO A PAGE FROM INSIDE A COMPONENT
   #this.props.history.push('/dashboard')
   --------------------------------------------
+
+
+  43 Redux Login Action & Set Current User
+===================================================================================================
+We want to take the token when we log in we get a token and store it in local storage.
+If we're then logged in, we send that with every request we make. The logout funcion will destroy the token.
+
+ACTIONS/authActions.js
+  - create Login action for logging in & saving token to local storage after axios login is successful.
+  - ceate setAuthToken function to set the token to headers
+
+UTILS/setAuthToken.js
+  - create this function
+  - use axios defaults to set a default header
+
+ACTIONS/authActions.js
+  - import setAuthToen
+  - decode the token to get the user data out 
+  - install jwt decode
+#cd client
+#npm install jwt-decode
+  - import jwt_decode at top.
+  - decode the token and set it to an object called 'decoded'
+  - dspatch setCurrentUser function with the decoded object as the payload and the action type as SET_CURRENT_USER
+ACTIONS/types.js
+  - add SET_CURRENT_USER action type
+
+REDUCERS/authReducer.js
+  - import SET_CURRENT_USER action type
+  - create a case for it and set isAuthenticated to true if the object !isEmptyAG, import isEmptyAG from below file. That way we can just send an empty object if we want to logout
+VALIDATION/is-empty.js
+  - create a validation function isEmptyAG and export it.
+
+
