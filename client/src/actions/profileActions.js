@@ -67,6 +67,25 @@ export const addEducation = (eduData, history) => dispatch => {
     );
 };
 
+//Delete Experience
+export const deleteExperience = id => dispatch => {
+  axios
+    .delete(`/api/profile/experience/${id}`)
+    //when we delete an experience we get back the profile with that deleted experience, so we just udate the state with the new profile
+    .then(res =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 export const deleteAccount = () => dispatch => {
   //consfirmation of delete
   if (window.confirm("Are you sure? This can NOT be undone!")) {

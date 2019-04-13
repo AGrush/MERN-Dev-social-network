@@ -712,8 +712,26 @@ COMPONENTS/ADD-CREDENTIALS/AddExperience.js
 ACTIONS/profileActions.js
   - add the addExperience action to profileActions
 
-56 Add-Education Component & Functionality
+58 Add-Education Component & Functionality
 ========================================================================
 Copy experience & change some fields and names based on the routes we set up.
 Create the addEducation action inside profileActions.
 Create the route in App.js
+
+59 Make the Experience Component & Display on Dashboard
+========================================================================
+  - Build this out and put the component the App.js render method
+  - Pass the experience array prop down to the component
+  - Map this prop into a table of experiences and render it.
+  - Install moment library to sort date format out
+#cd client
+#npm i --save react-moment moment
+Moment is actually a react component we set the props of
+
+  - handle the delete button functionality
+  - bring in action called deleteExperience
+  - add it to connect redux method
+  - add it to proptypes
+  - create onCLick event on the button, bind it there because we don't have a constructor. We ALSO need to get the id of the experience so we bind it in that onClick event.
+  - create onDeleteCLick function and pass through the id and history so we can redirect to dashboard after adding it.
+  - add the Action to ProfileActoins and dispatch GET_PROFILE when completed
