@@ -543,3 +543,46 @@ COMPONENTS/Login.js
 COMPONENTS/Register.js
   - replace form goups with TextFieldGroup components
   - add the info prop for the email field to explain gravatar
+
+47 Profile Reducer & get current profile & clear profile state
+========================================================================
+Create Dashboard component which getsCurrentProfile with the componentDidMount lifecycle method when redirected to from Login and displays the profile (doesn't exist yet)
+------------------------------------------------------------------------
+REDUCERS/profileReducer.js
+  - create reducer file
+
+REDUCERS/index.js
+  - add it to the reducer index
+
+ACTIONS/types.js
+  - add a type
+
+ACTIONS/profileAction.js
+  - add new actions file
+  - add getCurrentProfile action
+  - add setProfileLoading action
+
+REDUCERS/profileReducer.js
+  - import actions
+  - initalise State
+  - add reducer functions for GET_PROFILE & PROFILE_LOADING
+
+COMPONENTS/DASHBOARD/Dashboard.js
+  - make basic file with a rendered word & import react & component, PropTypes & connect getCurrentProfile to redux with null mapStateToProps value
+  - add componentDidMount to display the getCurrentProfile straight away
+
+  MAIN/App.js
+  - Create a route for this new page
+  - import Dashboard component into the 'body' routes and set it up 
+
+Now we want to clear the profile state when we logout so we need to create the action and add it to the logout button and token expiry function:
+------------------------------------------------------------------------
+ACTIONS/profileAction.js
+  - add clearCurrentProfile action
+ACTIONS/profileReducer.js
+  - add CLEAR_CURRENT_PROFILE case
+LAYOUT/Navbar.js
+  - add clearCurrentProfile call to the onLogoutCLick button
+  - connect the function to Redux at bottom
+MAIN/App.js
+  - clear Redux state when token expires: store.dispatch(clearCurrentProfile())

@@ -65,8 +65,7 @@ class Register extends Component {
               <h1 className="display-4 text-center">Sign Up</h1>
               <p className="lead text-center">Create your DevNetwork account</p>
               <form noValidate onSubmit={this.onSubmit}>
-                <div className="form-group">
-                  {/* REPLACED WITH TEXTFIELDGROUP!
+                {/* REPLACED WITH TEXTFIELDGROUP!
                    <input
                     type="text"
                     //classnames module.......default classnames
@@ -85,15 +84,14 @@ class Register extends Component {
                   errors.name && (
                     <div className="invalid-feedback">{errors.name}</div>
                   )} */}
-                  <TextFieldGroup
-                    placeholder="Name"
-                    name="name"
-                    // type="text" already set in component prop defaults
-                    value={this.state.name}
-                    onChange={this.onChange}
-                    error={errors.name}
-                  />
-                </div>
+                <TextFieldGroup
+                  placeholder="Name"
+                  name="name"
+                  // type="text" already set in component prop defaults
+                  value={this.state.name}
+                  onChange={this.onChange}
+                  error={errors.name}
+                />
                 <TextFieldGroup
                   placeholder="Email"
                   name="email"

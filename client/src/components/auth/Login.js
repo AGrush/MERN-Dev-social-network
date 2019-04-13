@@ -59,7 +59,7 @@ class Login extends Component {
               <p className="lead text-center">
                 Sign in to your DevConnector account
               </p>
-              <form onSubmit={this.onSubmit}>
+              <form noValidate onSubmit={this.onSubmit}>
                 {/* //pass these props down to the component */}
                 <TextFieldGroup
                   placeholder="Email Address"
