@@ -675,3 +675,30 @@ delete account stuff:
 ACTIONS/profileActions.js
   - add Delete account & profile ACTION: setCurrentUser with empty payload.
   -
+
+54 Edit Profile Component
+========================================================================
+Copy create profile component. Our route in the backend was the same for edit and create profile.
+------------------------------------------------------------------------
+COMPONENTS/EDIT_PROFILE/EditProfile.js
+  - copy all from createProfile
+  - import getCurrentProfile action
+  - add componentDidMount() which calls getCurrentProfile action 
+  - connect getCurrentProfile action to redux 
+  - add it to prop types
+
+MAIN/App.js
+  - create the switch private route for edit-profile
+  - import the component edit-profile
+
+
+COMPONENTS/EDIT_PROFILE/EditProfile.js
+  - change up the text to edit profile stuff
+  - add to componentWillReceiveProps:
+------------------------------------------------------------------------
+ComponentDidMount will run and get current profile as sooon as the EditProfile page is opened. The state will update and mapStateToProps runs, which triggers componentWillReceiveProps function. Inside, we check for the profile first then:
+  - we turn the skills arrray back into a comma separated value (CSV) string
+  - then we check if all profile info and if it doesnt exist turn it into an empty string.
+  - finally we setState which should fill the form with all of the existing profile info.
+  - onSubmit stays the same and we call createProfile with the withRouter so it will redirect correctly
+------------------------------------------------------------------------
