@@ -703,7 +703,7 @@ ComponentDidMount will run and get current profile as sooon as the EditProfile p
   - onSubmit stays the same and we call createProfile with the withRouter so it will redirect correctly
 ------------------------------------------------------------------------
 
-56 Add-Experience Component
+56 Add-Experience Component & Functionality
 ========================================================================
 COMPONENTS/ADD-CREDENTIALS/AddExperience.js
   - create the file & form logic, connect redux mapstatetoprops, proptypes, componentwllreceiveprops and onsubmit functions. 
@@ -712,4 +712,8 @@ COMPONENTS/ADD-CREDENTIALS/AddExperience.js
 ACTIONS/profileActions.js
   - add the addExperience action to profileActions
 
-
+56 Add-Education Component & Functionality
+========================================================================
+Copy experience & change some fields and names based on the routes we set up.
+Create the addEducation action inside profileActions.
+Create the route in App.js
