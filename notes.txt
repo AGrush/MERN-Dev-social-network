@@ -676,7 +676,7 @@ ACTIONS/profileActions.js
   - add Delete account & profile ACTION: setCurrentUser with empty payload.
   -
 
-54 Edit Profile Component
+55 Edit-Profile Component
 ========================================================================
 Copy create profile component. Our route in the backend was the same for edit and create profile.
 ------------------------------------------------------------------------
@@ -702,3 +702,14 @@ ComponentDidMount will run and get current profile as sooon as the EditProfile p
   - finally we setState which should fill the form with all of the existing profile info.
   - onSubmit stays the same and we call createProfile with the withRouter so it will redirect correctly
 ------------------------------------------------------------------------
+
+56 Add-Experience Component
+========================================================================
+COMPONENTS/ADD-CREDENTIALS/AddExperience.js
+  - create the file & form logic, connect redux mapstatetoprops, proptypes, componentwllreceiveprops and onsubmit functions. 
+  - import it into App.js as a protected route. 
+  - add separate checkbox functionality & method for 'To Date'
+ACTIONS/profileActions.js
+  - add the addExperience action to profileActions
+
+
