@@ -735,3 +735,7 @@ Moment is actually a react component we set the props of
   - create onCLick event on the button, bind it there because we don't have a constructor. We ALSO need to get the id of the experience so we bind it in that onClick event.
   - create onDeleteCLick function and pass through the id and history so we can redirect to dashboard after adding it.
   - add the Action to ProfileActoins and dispatch GET_PROFILE when completed
+
+60 Dashboard Education Display & Delete
+========================================================================
+repeat above for education
