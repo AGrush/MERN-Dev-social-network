@@ -641,7 +641,7 @@ Populate CreateProfile.js
 ------------------------------------------------------------------------
 COMPONENTS/CREATE-PROFILE/CreateProfile.js
   - create toggle state logic for social inputs and output only if state is true.
-  - add all of the Components we created in 50&51 passing the correct props for each.
+  - add all of the form Components we created in 50&51 passing the correct props for each.
 
 ========================================================================
 53 CreateProfile Form Action
@@ -653,3 +653,25 @@ COMPONENTS/CREATE-PROFILE/CreateProfile.js
   - add componentWillReceiveProps function to test errors
   - create onSubmit functtion to submit the data to the action
 
+
+54 Add Profile Actions & Delete Account Components to dashboard
+========================================================================
+Create the conditional rendering logic for the dashboard if the profile does exist. i.e. build the users dashboard. Create the delete button and the Action for deleting in profileActions.
+------------------------------------------------------------------------
+COMPONENTS/DASHBOARD/Dashboard.js
+  -add Link to profile
+
+COMPONENTS/DASHBOARD/ProfileActions.js
+  - create the component by copying accross from the html theme and change classes to className and change a tags to Link to=/...
+
+COMPONENTS/DASHBOARD/Dashboard.js
+  -add the ProfileActions component here
+delete account stuff:
+  -import deleteAccount action (not created yet)
+  -connect it to Redux
+  -create the functin that calls it with this.props.deleteAccount()
+  -add this to a button onClick property and bind(this)
+
+ACTIONS/profileActions.js
+  - add Delete account & profile ACTION: setCurrentUser with empty payload.
+  -
