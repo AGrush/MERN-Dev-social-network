@@ -586,3 +586,39 @@ LAYOUT/Navbar.js
   - connect the function to Redux at bottom
 MAIN/App.js
   - clear Redux state when token expires: store.dispatch(clearCurrentProfile())
+
+48 Spinner Component & Dashboard Start
+========================================================================
+Create conditional rendering for the dashboard depending if it is loading or not and if there is a profile in the state or not.
+------------------------------------------------------------------------
+COMPONENTS/DASHBOARD/Dashboard.js
+  - connect Dashboard to redux, proptypes, connect mapstatetoprops...
+  - add some basic conditional rendering for the loading/not loading
+COMPONENTS/COMMON/Spinner.js
+  - create basic spinner functional component
+COMPONENTS/DASHBOARD/Dashboard.js
+  - import spinner
+  - create the logic for conditional rendering the BASIC dashboard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+========================================================================
+
+------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------

@@ -4,6 +4,7 @@ import {
   CLEAR_CURRENT_PROFILE
 } from "../actions/types";
 
+//this.props.profile.X
 const initialState = {
   profile: null,
   profiles: null,
