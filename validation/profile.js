@@ -37,10 +37,8 @@ module.exports = function validateProfileInput(data) {
     }
   }
 
-  if (!isEmptyAG(data.twitter)) {
-    if (!Validator.isURL(data.twitter)) {
-      errors.twitter = "Not a valid URL";
-    }
+  if (!Validator.isURL(data.twitter) && !isEmptyAG(data.twitter)) {
+    errors.twitter = "Not a valid URL";
   }
 
   if (!isEmptyAG(data.facebook)) {
@@ -63,7 +61,7 @@ module.exports = function validateProfileInput(data) {
 
   //it will be valid if the errors are empty
   return {
-    errors: errors,
+    errors,
     isValid: isEmptyAG(errors)
   };
 };

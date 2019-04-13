@@ -600,25 +600,56 @@ COMPONENTS/DASHBOARD/Dashboard.js
   - import spinner
   - create the logic for conditional rendering the BASIC dashboard
 
+========================================================================
+49 Private Route Setup
+------------------------------------------------------------------------
+Not as easy to do natively as in Angular. We want to create a provate route component to check if we're authenticated and if its not it will redirect us to login.
+------------------------------------------------------------------------
+COMPONENTS/COMMON/PrivateRoute.js
+  - create file & the logic here 
+MAIN/App.js
+  - import PrivateRoute
+  - Change dashboard Route to PrivateRoute
+  - bring in Switch, we need to wrap every PrivateRoute in Switch to prevent redirect issues
 
+========================================================================
+50&51. CreateProfile Component & Route
+------------------------------------------------------------------------
+Create private route for the CreateProfile component in App.js and build the CreateProfile component by first creating the various input groups necessary for the register form.
+------------------------------------------------------------------------
+MAIN/App.js
+  - import PrivateRoute
+  - Change CreatProfile Route to PrivateRoute & Switch it up
 
+COMPONENTS/CREATE-PROFILE/CreateProfile.js
+  - build out this file
 
+COMPONENTS/COMMON/TextAreaFieldGroup.js
+  - copy textField group and delete some unneccessary parts
 
+COMPONENTS/COMMON/SelectListGroup.js
+  - copy again n change up
 
-
-
-
-
-
-
-
-
+COMPONENTS/COMMON/InputGroup.js
+  - copy again n change up
 
 
 ========================================================================
-
+52 CreateProfile Form
 ------------------------------------------------------------------------
-
-
-
+Populate CreateProfile.js
 ------------------------------------------------------------------------
+COMPONENTS/CREATE-PROFILE/CreateProfile.js
+  - create toggle state logic for social inputs and output only if state is true.
+  - add all of the Components we created in 50&51 passing the correct props for each.
+
+========================================================================
+53 CreateProfile Form Action
+------------------------------------------------------------------------
+Add createProfile action 
+  - pass in history to be able to redirect with withrouter
+
+COMPONENTS/CREATE-PROFILE/CreateProfile.js
+  - add componentWillReceiveProps function to test errors
+  - create onSubmit functtion to submit the data to the action
+
