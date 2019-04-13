@@ -21,7 +21,7 @@ module.exports = function validateLoginInput(data) {
     errors.password = "Password field is required";
   }
 
-  //Validator.isEmpty method only works with strings so we need out own function isEmpty to check a varible
+  //Validator.isEmpty method only works with strings so we need our own function isEmpty to check a varible
   //isEmpty returns true is there are no errors
   return {
     errors: errors,

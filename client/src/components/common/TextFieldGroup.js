@@ -1,7 +1,10 @@
-import React from 'react';
-import classnames from 'classnames';
-import PropTypes from 'prop-types';
+//a text input component that accepts props and we can reuse in our forms
 
+import React from "react";
+import classnames from "classnames";
+import PropTypes from "prop-types";
+
+//functional component so we pass props to it
 const TextFieldGroup = ({
   name,
   placeholder,
@@ -17,8 +20,8 @@ const TextFieldGroup = ({
     <div className="form-group">
       <input
         type={type}
-        className={classnames('form-control form-control-lg', {
-          'is-invalid': error
+        className={classnames("form-control form-control-lg", {
+          "is-invalid": error
         })}
         placeholder={placeholder}
         name={name}
@@ -32,6 +35,7 @@ const TextFieldGroup = ({
   );
 };
 
+//always use proptypes when handling props
 TextFieldGroup.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
@@ -43,8 +47,9 @@ TextFieldGroup.propTypes = {
   disabled: PropTypes.string
 };
 
+//if we don't pass it in it will be the default
 TextFieldGroup.defaultProps = {
-  type: 'text'
+  type: "text"
 };
 
 export default TextFieldGroup;

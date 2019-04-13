@@ -14,13 +14,15 @@ class Login extends Component {
     };
   }
 
+  //if we are registered redirect to dashboard
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
     }
   }
-
+  //create lifecyclemethod componentWillReceiveProps to map any error props received from mapStateToProps back to the component state. If they exist the render method will display them every time props are received (every onSubmit call).
   componentWillReceiveProps(nextProps) {
+    //if isAuthenticated redirect to dashboard
     if (nextProps.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
     }
@@ -58,6 +60,7 @@ class Login extends Component {
                 Sign in to your DevConnector account
               </p>
               <form onSubmit={this.onSubmit}>
+                {/* //pass these props down to the component */}
                 <TextFieldGroup
                   placeholder="Email Address"
                   name="email"
@@ -67,6 +70,7 @@ class Login extends Component {
                   error={errors.email}
                 />
 
+                {/* //pass these props down to the component */}
                 <TextFieldGroup
                   placeholder="Password"
                   name="password"

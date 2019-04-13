@@ -467,7 +467,7 @@ REDUCERS/authReducer.js
 VALIDATION/is-empty.js
   - create a validation function isEmptyAG and export it.
 
-43 Redux Login Form functionality & using local storage to stay logged in
+44 Redux Login Form functionality & using local storage to stay logged in
 ===================================================================================================
 COMPONENTS/Login.js
   - import PropTypes
@@ -489,4 +489,57 @@ MAIN/App.js
   - import jwt-decode
   - import setAuthToken utility
   - import setCurrentUser action
+
   on every request, set logic to check for token, set it to the auth header and decode it and set user and isAuthenticated to state with the setCurrentUser action.
+
+45 Logout & Conditional Navbar Links
+===================================================================================================
+
+ACTIONS/authActions.js
+  - create logoutUser action
+
+conditional rendering of navbar:
+COMPONENTS/LAYOUT/Navbar.js
+  - import PropTypes
+  - import connect
+  - import logoutUser action
+  - bring in the auth state with mapStateToProps
+  - connect the component to the redux store
+  const myContainer = connect(props, dispatchs)(ComponentIWantToConnect)
+  - in render method pullout the auth state componenets that we will test for 
+  - create two JSX const instances for the logged in user and for the logged out user which will be displayed conditionally:
+  authLinks: 
+    - create logout link, bind this as there is no constructor so that we can call the onLogoutClick function outside the render method. Create that function.
+    - add a gravatar img with inline style:
+      #style={{ width: "25px", marginRight: "5px" }}
+      #className="rounded-circle" bootstrap class 
+  - add a ternary in the render to conditionally display those.
+
+logout user when token expires:
+MAIN/App.js
+  - add logic to local storage check
+
+create redirects on login&register pages if use is logged in:
+COMPONENTS/Login.js
+  - commponentDidMount() function with history.push method
+COMPONENTS/Register.js
+  - commponentDidMount() function with history.push method
+COMPONENTS/landing.js
+  - need to bring in redux here to make this work: mapstatetoprops, proptypes & connect.
+  - commponentDidMount() function with history.push method
+
+
+46 TextFieldGroupInput components instead of form groups
+===================================================================================================
+
+make inputs functional components that we pass props to:
+COMMON/TextFieldGroup.js
+  - create file
+  - set how props & default props will behave 
+
+COMPONENTS/Login.js
+  - replace form gorups with TextFieldGroup components
+
+COMPONENTS/Register.js
+  - replace form goups with TextFieldGroup components
+  - add the info prop for the email field to explain gravatar
