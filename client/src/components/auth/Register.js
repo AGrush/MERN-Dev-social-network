@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import classnames from "classnames";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
-import { isError } from "util";
+//import { isError } from "util";
 
 class Register extends Component {
   constructor() {
@@ -23,7 +23,7 @@ class Register extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  //This takes the errors state that gets passed from reducer to the mapStateToProps funciton below, and sets it to the Component state,
+  //we used componentWillReceiveProps to map the props that came from the reducer to the state
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
@@ -45,6 +45,7 @@ class Register extends Component {
   };
 
   render() {
+    //we used componentWillReceiveProps to map the props that came from the reducer to the state
     //destructuring, pull errors out
     const { errors } = this.state;
 

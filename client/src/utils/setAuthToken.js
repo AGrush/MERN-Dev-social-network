@@ -1,9 +1,10 @@
+//Set the token to the default axios request or destroy it if an empty token is sent.
 import axios from "axios";
 
 const setAuthToken = token => {
   if (token) {
-    //apply to every request
-    axios.default.headers.common["Authorization"] = token;
+    // Apply to every request
+    axios.defaults.headers.common["Authorization"] = token;
   } else {
     // Delete auth header
     delete axios.defaults.headers.common["Authorization"];

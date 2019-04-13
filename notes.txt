@@ -450,7 +450,7 @@ UTILS/setAuthToken.js
   - use axios defaults to set a default header
 
 ACTIONS/authActions.js
-  - import setAuthToen
+  - import setAuthToken
   - decode the token to get the user data out 
   - install jwt decode
 #cd client
@@ -467,4 +467,26 @@ REDUCERS/authReducer.js
 VALIDATION/is-empty.js
   - create a validation function isEmptyAG and export it.
 
+43 Redux Login Form functionality & using local storage to stay logged in
+===================================================================================================
+COMPONENTS/Login.js
+  - import PropTypes
+  - import loginUser action from auth/actions
+  - import connect 
+  - export connect at the bottom with the right putting loginUser as a function we are calling from the actions file.
+  - map auth and errors state to props in mapStateToProps function
+  - add auth and errors to propTypes function
+  - import classnames to be able to render classes with logic 
+  - add the classname logic to desplay errors from the backend and reducer 
+  - create lifecyclemethod componentWillReceiveProps to map any error props received to the component state. so that if they exist the render method will display them. Finally add if isAuthenticated redirect to dashboard.
+#this.props.history.push("/dashboard");
+  - call the action function loginUser in onSubmit function
 
+Now the login works but reloading will loose our authenticated state..
+So we need to add logic in App.js to always check to see if we're logged in. By getting the token from the local storage on every App.js request.
+
+MAIN/App.js
+  - import jwt-decode
+  - import setAuthToken utility
+  - import setCurrentUser action
+  on every request, set logic to check for token, set it to the auth header and decode it and set user and isAuthenticated to state with the setCurrentUser action.
