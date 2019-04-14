@@ -754,3 +754,10 @@ Bring it into the App.js as an UNPROTEcTED route as we want anyone to be able to
 Create profile Action in profieActions, dispatch loading actionand GET_POFILES action after receiving the data from the backend request.
 Create profile Reducer case in profileReduce.js
 ------------------------------------------
+
+
+62.Profile Items
+===========================================
+Create the inividual profile card for the profiles page with the relevant logic for each info output. Map it out in the Profiles.js conditionally rendered variable and display in the relevant position in the bootstrap markup. Pass down the profile as a prop.
+
+------------------------------------------
