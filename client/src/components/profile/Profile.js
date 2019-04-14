@@ -25,7 +25,7 @@ class Profile extends Component {
       this.props.getProfileByHandle(this.props.match.params.handle);
     }
   }
-
+  //when we call get profile by handle, if it's not found we still call getProfile but we return null as the payload.
   componentWillReceiveProps(nextProps) {
     if (nextProps.profile.profile === null && this.props.profile.loading) {
       this.props.history.push("/not-found");

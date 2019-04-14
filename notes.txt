@@ -781,4 +781,6 @@ ProfileGitHub.js
   - Register to GitHub API Oauth & get the clientSecret & clientId.
   - Create a separate component that only uses Component state and the passed username prop.
   - CHeck the logic in the files comments
-  
+NotFound.js
+  - create page and route for non existent routes
+  - add logic into Profile.js to test for null profile response and redirect to this page.
