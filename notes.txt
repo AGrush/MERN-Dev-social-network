@@ -739,3 +739,18 @@ Moment is actually a react component we set the props of
 60 Dashboard Education Display & Delete
 ========================================================================
 repeat above for education
+
+==========
+==========
+PRODILE DISPLAY
+==========
+==========
+
+
+61.Profiles Component & getProfiles Action
+===========================================
+Create the Profiles.js component with some conditional rendering depending on whether the profiles are null, loading or loaded.
+Bring it into the App.js as an UNPROTEcTED route as we want anyone to be able to go on it.
+Create profile Action in profieActions, dispatch loading actionand GET_POFILES action after receiving the data from the backend request.
+Create profile Reducer case in profileReduce.js
+------------------------------------------
