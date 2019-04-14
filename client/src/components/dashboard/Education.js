@@ -1,3 +1,12 @@
+/**
+ * The Education section on the users dashboard.
+ *
+ * Parent: Dashboard.js
+ *
+ * props passed down from parent:
+ * education={profile.education}
+ */
+
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";

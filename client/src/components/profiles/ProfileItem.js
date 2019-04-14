@@ -1,3 +1,13 @@
+/**
+ * Individual boilerplate for each profile that will be mapped.
+ *
+ * Parent: Profiles.js
+ *
+ * props passed down from parent:
+ * key={profile._id}
+ * profile={profile}
+ */
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";

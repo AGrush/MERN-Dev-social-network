@@ -1,3 +1,11 @@
+/**
+ * A private route for use in App.js, we need to wrap
+ * this private route whenever it's used in a <Swith> component.
+ *
+ * Parent: App.js
+ *
+ */
+
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";

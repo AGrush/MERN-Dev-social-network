@@ -1,3 +1,8 @@
+/**
+ * Basic spinner gif component for load screens
+ *
+ */
+
 import React from "react";
 import spinner from "./spinner.gif";
 

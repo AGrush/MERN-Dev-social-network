@@ -1,3 +1,12 @@
+/**
+ * The Edit Profile/Add Experience/Edd Education actions on the users dashboard.
+ *
+ * Parent: Dashboard.js
+ *
+ * props passed down from parent:
+ * none
+ */
+
 import React from "react";
 import { Link } from "react-router-dom";
 

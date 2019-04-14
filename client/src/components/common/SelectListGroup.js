@@ -1,3 +1,12 @@
+/**
+ * A drop down selection list component.
+ *
+ * Parent: CreateProfile, EditProfile
+ *
+ * props passed down from parent:
+ * see below
+ */
+
 import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";

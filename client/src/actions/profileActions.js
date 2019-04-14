@@ -1,3 +1,8 @@
+/**
+ * All of actions associated with the Profile
+ *
+ */
+
 import axios from "axios";
 
 import {
@@ -29,6 +34,24 @@ export const getCurrentProfile = () => dispatch => {
     );
 };
 
+// Get profile by handle
+export const getProfileByHandle = handle => dispatch => {
+  dispatch(setProfileLoading());
+  axios
+    .get(`/api/profile/handle/${handle}`)
+    .then(res =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: null
+      })
+    );
+};
 // Create Profile // to be able to redirect with withrouter we have to pass in history here
 export const createProfile = (profileData, history) => dispatch => {
   axios

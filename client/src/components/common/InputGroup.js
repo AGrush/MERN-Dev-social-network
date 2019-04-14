@@ -1,3 +1,12 @@
+/**
+ * An input group component which will contain social media links.
+ *
+ * Parent: CreateProfile, EditProfile
+ *
+ * props passed down from parent:
+ * see below
+ */
+
 import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";

@@ -1,4 +1,12 @@
-//mostly a copy of textfieldgroup with stuff removed such as input type and disabled prop types
+/**
+ * A text area input component that accepts props and we can reuse in our forms
+ * Mostly a copy of textfieldgroup with things removed such as input type and disabled prop types
+ *
+ * Parent: AddEducation, AddExperience, CreateProfile, EditProfile
+ *
+ * props passed down from parent:
+ * see below
+ */
 
 import React from "react";
 import classnames from "classnames";

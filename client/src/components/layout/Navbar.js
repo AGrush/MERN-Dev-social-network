@@ -1,3 +1,12 @@
+/**
+ * Navbar that appears on all pages
+ *
+ * Parent: App.js
+ *
+ * props passed down from parent:
+ * none
+ */
+
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";

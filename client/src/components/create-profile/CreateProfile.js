@@ -1,3 +1,12 @@
+/**
+ * Create profile page shows when user exists but profile doesn't
+ *
+ * Parent: App.js
+ *
+ * props passed down from parent:
+ * none
+ */
+
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";

@@ -758,6 +758,27 @@ Create profile Reducer case in profileReduce.js
 
 62.Profile Items
 ===========================================
-Create the inividual profile card for the profiles page with the relevant logic for each info output. Map it out in the Profiles.js conditionally rendered variable and display in the relevant position in the bootstrap markup. Pass down the profile as a prop.
-
+Create the inividual profile card for the profiles page with the relevant logic for each info output. Map it out in the Profiles.js conditionally rendered variable and display in the relevant position in the bootstrap markup. Pass down the profile as a prop. CREATE THE URL FOR THE PROFILE HERE WITH THE PROFILE HANDLE which we will use below to render the right profile onto that page.
 ------------------------------------------
+
+62. Create Profile Component & Sub Components & URL handle to props
+==================================================================
+  - Create Profile Component & Sub Components
+Profile.js
+  - If the url and the props handle match, get the handle from the URL and pass it along to the action to return the right profile for that url. 
+ProfileHeader.js
+  - populate this component using the passed down props for the profile data, using ternaries to hide missing info.
+ProfileAbout.js
+  - split the name and get the first name
+  - map out the skills with icons
+ProfileCreds.js
+  - pass down education and experience props in Profile.js these are all we need
+  - bring in moment for the dates.
+  - conditionally render stuff thats not required at the server endpoints
+ProfileGitHub.js
+  - check to see if they actually have github username in Profile.js and only render if they do.
+  - pass the github username from props along into the component
+  - Register to GitHub API Oauth & get the clientSecret & clientId.
+  - Create a separate component that only uses Component state and the passed username prop.
+  - CHeck the logic in the files comments
+  

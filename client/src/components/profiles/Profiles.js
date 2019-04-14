@@ -1,3 +1,12 @@
+/**
+ * 'Developers' page on the nav
+ *
+ * Parent: App.js
+ *
+ * props passed down from parent:
+ * none
+ */
+
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";

@@ -1,4 +1,11 @@
-//a text input component that accepts props and we can reuse in our forms
+/**
+ * A text input component that accepts props and we can reuse in our forms
+ *
+ * Parent: Auth, AddEducation, AddExperience, CreateProfile, EditProfile
+ *
+ * props passed down from parent:
+ * see below
+ */
 
 import React from "react";
 import classnames from "classnames";

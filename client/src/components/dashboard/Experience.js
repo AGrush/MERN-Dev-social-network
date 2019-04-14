@@ -1,3 +1,12 @@
+/**
+ * The Experience section on the users dashboard.
+ *
+ * Parent: Dashboard.js
+ *
+ * props passed down from parent:
+ * experience={profile.experience}
+ */
+
 //We passed profile.experience in as a property to this Component
 import React, { Component } from "react";
 import { connect } from "react-redux";
