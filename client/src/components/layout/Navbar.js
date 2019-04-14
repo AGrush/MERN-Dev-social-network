@@ -34,7 +34,7 @@ class Navbar extends Component {
         </li>
         <li className="nav-item">
           <a
-            href="#"
+            href="www.google.com"
             onClick={this.onLogoutClick.bind(this)}
             className="nav-link"
           >
