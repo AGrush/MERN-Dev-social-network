@@ -826,8 +826,6 @@ ROOT/package.json:
 
   - NPM_CONFIG_PRODUCTION=false : we need this to run our dev dependancies in the client, including webpack etc.. its only run once for this command.
 
-
-
 PUSH to Heroku:
 ----------------
 - in your terminal do:
@@ -836,3 +834,4 @@ PUSH to Heroku:
   - $ git add .
   - $ git commit -am "make it better"
   - $ git push heroku master
+  - $ heroku open
