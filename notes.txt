@@ -800,7 +800,7 @@ NotFound.js
 
 75. Prepare & Deploy
 =========================
-To not deploy our keys onto github we need to do:
+To not show out keys on github we need to do:
 --------------------------------------------------
 Create two files:
 keys_dev.js
@@ -808,3 +808,31 @@ keys_dev.js
 keys_prod.js
   - use environment varioables here
 
+Prepare Heroku:
+---------------
+- sign up to heroku, download & install Heroku CLI
+- create a CLI app on the website
+- go to Settings/Config Vars and enter the key:value pairs variables from keys_prod.js MONGO_URI
+
+On the Heroku server there won't be a front end server we run on port 3000. So we need to point to the build folders index.html from our server... If none of the API rooutes in server.js are being hit 
+---------------------------------------------------
+  - edit server.js to redirect to index.html in build folder for any other route that gets hit
+
+create post build script for heroku to build on the server
+----------------------------------------------------------
+ROOT/package.json:
+  - scripts:
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+
+  - NPM_CONFIG_PRODUCTION=false : we need this to run our dev dependancies in the client, including webpack etc.. its only run once for this command.
+
+
+
+PUSH to Heroku:
+----------------
+- in your terminal do:
+  - $ heroku login   //put in credentials
+  - $ heroku git:remote -a dev-network-ag  //add new remote to existing git repo
+  - $ git add .
+  - $ git commit -am "make it better"
+  - $ git push heroku master
