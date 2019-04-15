@@ -1,3 +1,6 @@
+/**
+ * Not found profile page
+ */
 import React from "react";
 
 export default () => {

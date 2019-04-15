@@ -2,6 +2,7 @@ import isEmptyAG from "../validation/is-empty";
 
 import { SET_CURRENT_USER } from "../actions/types";
 
+//this is the child state: this.props.parent.CHILD
 const initialState = {
   isAuthenticated: false,
   user: {}

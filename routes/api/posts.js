@@ -112,7 +112,8 @@ router.post(
         .then(post => {
           //Error checking first
           if (
-            //post.likes is an array, for each one call it like, if like.user string is = to the logged in user
+            //post.likes is an array, leave the objects that match the criteria
+            // if the users id already matches to an id of a like then return error
             post.likes.filter(like => like.user.toString() === req.user.id)
               .length > 0
           ) {

@@ -761,7 +761,7 @@ Create profile Reducer case in profileReduce.js
 Create the inividual profile card for the profiles page with the relevant logic for each info output. Map it out in the Profiles.js conditionally rendered variable and display in the relevant position in the bootstrap markup. Pass down the profile as a prop. CREATE THE URL FOR THE PROFILE HERE WITH THE PROFILE HANDLE which we will use below to render the right profile onto that page.
 ------------------------------------------
 
-62. Create Profile Component & Sub Components & URL handle to props
+63. Create Profile Component & Sub Components & URL handle to props
 ==================================================================
   - Create Profile Component & Sub Components
 Profile.js
@@ -784,3 +784,21 @@ ProfileGitHub.js
 NotFound.js
   - create page and route for non existent routes
   - add logic into Profile.js to test for null profile response and redirect to this page.
+
+
+67. Posts & Likes & Comments
+======================
+- make postReducer & import into index reducer
+- make postAction
+- create the Posts component
+- make a private switch route to it in App.js
+- add a Link to the posts page in Navbar.js
+- create the postForm component
+- create the Reducer & Action for getPosts
+- create Posts.js PostFeed.js PostItem.js & put the logic in
+- repeat this process for Comments & Likes
+
+75. Prepare & Deploy
+=========================
+
+
