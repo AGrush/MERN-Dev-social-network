@@ -29,11 +29,13 @@ class Navbar extends Component {
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/feed">
+            <i className="fas fa-comments text-info mr-1 d-inline-flex" />
             PostFeed
           </Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/dashboard">
+            <i className="fas fa-tachometer-alt text-info mr-1" />
             Dashboard
           </Link>
         </li>
@@ -60,11 +62,13 @@ class Navbar extends Component {
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/register">
+            <i className="fas fa-user-plus text-info mr-1 inline" />
             Sign Up
           </Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/login">
+            <i className="fas fa-sign-in-alt text-info mr-1 inline" />
             Login
           </Link>
         </li>
@@ -90,7 +94,7 @@ class Navbar extends Component {
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
                 <Link className="nav-link" to="/profiles">
-                  {" "}
+                  <i className="fas fa-users text-info mr-1 inline" />
                   Developers
                 </Link>
               </li>

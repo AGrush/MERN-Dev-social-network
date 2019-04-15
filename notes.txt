@@ -800,5 +800,11 @@ NotFound.js
 
 75. Prepare & Deploy
 =========================
-
+To not deploy our keys onto github we need to do:
+--------------------------------------------------
+Create two files:
+keys_dev.js
+  - copy old keys.js in here
+keys_prod.js
+  - use environment varioables here
 

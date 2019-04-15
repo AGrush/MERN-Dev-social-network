@@ -1,6 +1,6 @@
-//a way of making this object available outside its file
-module.exports = {
-  mongoURI:
-    "mongodb+srv://andrey:andrey@cluster0-1vjnh.mongodb.net/test?retryWrites=true",
-  secretOrKey: "secret"
-};
+//wehn we deploy to heroku the NODE_ENV will be production
+if (process.env.NODE_ENV === "production") {
+  module.exports = require("./keys_prod");
+} else {
+  module.exports = require("./keys_dev");
+}
